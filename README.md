@@ -1,7 +1,7 @@
 # Android Click Events Library
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Latest Release](https://img.shields.io/badge/Libary-AAD7D9)](https://jitpack.io/#yourusername/yourlibrary](https://jitpack.io/#arpitbandil/Multi-Functional_Button/1.0.0))
+[![Latest Release](https://jitpack.io/v/arpitbandil/Multi-Functional_Button.svg)](https://jitpack.io/#arpitbandil/Multi-Functional_Button)
 
 ## Overview
 
