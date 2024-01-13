@@ -4,9 +4,6 @@ plugins {
     id("maven-publish")
 }
 
-group = "multifunctionalbutton"
-version = "1.0.1"
-
 android {
     namespace = "com.arpitbandil.multifunctionalbutton"
     compileSdk = 34
@@ -30,11 +27,6 @@ android {
             )
         }
     }
-    publishing {
-        singleVariant("release") {
-            withSourcesJar()
-        }
-    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -42,36 +34,44 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
+    }
 }
 
-publishing {
-    publications {
-        create<MavenPublication>("multifunctionalbutton") {
-            artifact("$buildDir/outputs/apk/release/${artifactId}-release.apk")
-            pom {
-                withXml {
-                    val dependenciesNode = asNode().appendNode("dependencies")
-                    configurations.getByName("implementation") {
-                        dependencies.forEach {
-                            val dependencyNode = dependenciesNode.appendNode("dependency")
-                            dependencyNode.appendNode("groupId", it.group)
-                            dependencyNode.appendNode("artifactId", it.name)
-                            dependencyNode.appendNode("version", it.version)
+afterEvaluate {
+    publishing {
+        publications {
+            register<MavenPublication>("release") {
+                from(components["release"])
+                groupId = "com.arpitbandil"
+                version = android.defaultConfig.versionName
+
+                pom {
+                    withXml {
+                        val dependenciesNode = asNode().appendNode("dependencies")
+                        configurations.getByName("implementation") {
+                            dependencies.forEach {
+                                val dependencyNode = dependenciesNode.appendNode("dependency")
+                                dependencyNode.appendNode("groupId", it.group)
+                                dependencyNode.appendNode("artifactId", it.name)
+                                dependencyNode.appendNode("version", it.version)
+                            }
                         }
                     }
                 }
             }
         }
-    }
 
-    repositories {
-        maven {
-            name = "multifunctionalbutton"
-            url = uri(layout.buildDirectory.dir("multifunctionalbutton"))
+        repositories {
+            maven {
+                url = uri("${project.buildDir}/repo")
+            }
         }
     }
 }
-
 
 dependencies {
 
