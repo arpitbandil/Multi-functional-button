@@ -41,6 +41,35 @@ android {
     }
 }
 
+publishing {
+    publications {
+        create<MavenPublication>("multifunctionalbutton") {
+            artifact("$buildDir/outputs/aar/${artifactId}-release.aar")
+            pom {
+                withXml {
+                    val dependenciesNode = asNode().appendNode("dependencies")
+                    configurations.getByName("implementation") {
+                        dependencies.forEach {
+                            val dependencyNode = dependenciesNode.appendNode("dependency")
+                            dependencyNode.appendNode("groupId", it.group)
+                            dependencyNode.appendNode("artifactId", it.name)
+                            dependencyNode.appendNode("version", it.version)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            name = "multifunctionalbutton"
+            url = uri(layout.buildDirectory.dir("repo"))
+        }
+    }
+}
+
+
 dependencies {
 
     implementation("androidx.core:core-ktx:1.12.0")
