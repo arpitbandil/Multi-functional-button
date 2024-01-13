@@ -5,6 +5,7 @@ plugins {
 }
 
 group = "multifunctionalbutton"
+version = "1.0.1"
 
 android {
     namespace = "com.arpitbandil.multifunctionalbutton"
@@ -46,7 +47,7 @@ android {
 publishing {
     publications {
         create<MavenPublication>("multifunctionalbutton") {
-            artifact("$buildDir/outputs/aar/${artifactId}-release.aar")
+            artifact("$buildDir/outputs/apk/release/${artifactId}-release.apk")
             pom {
                 withXml {
                     val dependenciesNode = asNode().appendNode("dependencies")
@@ -66,7 +67,7 @@ publishing {
     repositories {
         maven {
             name = "multifunctionalbutton"
-            url = uri(layout.buildDirectory.dir("repo"))
+            url = uri(layout.buildDirectory.dir("multifunctionalbutton"))
         }
     }
 }
