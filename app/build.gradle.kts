@@ -4,6 +4,8 @@ plugins {
     id("maven-publish")
 }
 
+group = "multifunctionalbutton"
+
 android {
     namespace = "com.arpitbandil.multifunctionalbutton"
     compileSdk = 34
