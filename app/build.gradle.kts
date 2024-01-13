@@ -1,5 +1,5 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("org.jetbrains.kotlin.android")
     id("maven-publish")
 }
@@ -9,12 +9,8 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.arpitbandil.multifunctionalbutton"
         minSdk = 26
         targetSdk = 34
-        versionCode = 2
-        versionName = "1.0.2"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
