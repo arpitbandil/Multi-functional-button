@@ -29,7 +29,7 @@ Add the following to your module-level `build.gradle` file:
 
 ```gradle
 dependencies {
-    implementation 'com.github.arpitbandil:Multi-Functional_Button:1.0.0'
+    implementation 'com.github.arpitbandil:Multi-Functional_Button:v1.0.0'
 }
 ```
 Make sure you have JitPack repository added in your build.gradle:
@@ -46,7 +46,7 @@ allprojects {
 <dependency>
     <groupId>com.github.arpitbandil</groupId>
     <artifactId>Multi-Functional_Button</artifactId>
-    <version>1.0.0</version>
+    <version>v1.0.0</version>
 </dependency>
 ```
 
