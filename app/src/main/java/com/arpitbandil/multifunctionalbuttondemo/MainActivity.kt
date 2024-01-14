@@ -1,4 +1,4 @@
-package com.arpitbandil.multifunctionalbutton
+package com.arpitbandil.multifunctionalbuttondemo
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -7,8 +7,8 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.arpitbandil.multifunctionalbutton.listeners.MultiFunctionalTouchListener
-import com.arpitbandil.multifunctionalbutton.listeners.setMultiFunctionalTouchListener
+import com.arpitbandil.multifunctionalbutton.MultiFunctionalTouchListener
+import com.arpitbandil.multifunctionalbutton.setMultiFunctionalTouchListener
 
 class MainActivity : AppCompatActivity() {
 

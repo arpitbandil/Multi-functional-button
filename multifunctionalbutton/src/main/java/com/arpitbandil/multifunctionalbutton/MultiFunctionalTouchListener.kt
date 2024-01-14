@@ -1,4 +1,4 @@
-package com.arpitbandil.multifunctionalbutton.listeners
+package com.arpitbandil.multifunctionalbutton
 
 import android.os.Build
 import android.os.Handler

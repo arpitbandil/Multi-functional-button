@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Multi-Functional Button"
+rootProject.name = "Multi-Functional Button Sample Demo"
 include(":app")
- 
+include(":multifunctionalbutton")
